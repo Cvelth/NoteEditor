@@ -8,7 +8,7 @@ Controller::Controller() {
 }
 
 void Controller::initializeDurationSystem(QLayout * layout) {
-	m_duration = new DurationHolder(6, layout);
+	m_duration = new DurationHolder(4, layout);
 }
 
 void Controller::initializeStaffSystem(QLayout * layout) {

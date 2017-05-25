@@ -7,14 +7,10 @@ void NoteList::addNote(Note* note) {
 	m_data.push_back(note);
 }
 
-void NoteList::removeNote(Note * note) {
-	m_data.remove(note);
+size_t NoteList::size() {
+	return m_data.size();
 }
 
-std::list<Note*>::iterator NoteList::begin() {
-	return m_data.begin();
-}
-
-std::list<Note*>::iterator NoteList::end() {
-	return m_data.end();
+Note * NoteList::at(size_t i) {
+	return m_data.at(i);
 }

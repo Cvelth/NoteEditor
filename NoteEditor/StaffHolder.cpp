@@ -1,21 +1,17 @@
 #include "StaffHolder.hpp"
 #include "Staff.hpp"
 #include "qlayout.h"
+#include "NoteList.hpp"
 
-StaffHolder::StaffHolder(QLayout * layout, DurationHolder * duration, NoteList * notes) {
-	m_duration = duration;
-	m_layout = layout;
-	m_notes = notes;
-	auto t = new Staff(m_duration, m_notes);
-	m_data.push_back(t);
-	updateLayout();
+StaffHolder::StaffHolder(QLayout * layout, DurationHolder * duration, NoteList * notes)
+		: m_duration(duration), m_layout(layout), m_notes(notes) {
+	addStaff(0);
 }
 
-void clearLayout(QLayout* layout) {
+void StaffHolder::clearLayout(QLayout* layout) {
 	while (QLayoutItem* item = layout->takeAt(0)) {
-		if (QLayout* childLayout = item->layout())
-			clearLayout(childLayout);
-		delete item;
+		disconnect(item->widget(), 0, 0, 0);
+		layout->removeItem(item);
 	}
 }
 
@@ -24,4 +20,27 @@ void StaffHolder::updateLayout() {
 	for (auto t : m_data)
 		m_layout->addWidget(t);
 	m_layout->addItem(new QSpacerItem(1, 1, QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
+}
+
+void StaffHolder::addStaff(size_t i) {
+	auto t = new Staff(m_duration, m_notes, i, max_id++);
+	connect(t, &Staff::OverflowSignal, this, &StaffHolder::addNewStaff);
+	connect(t, &Staff::updateStaffs, this, &StaffHolder::updateStaffs);
+	m_data.push_back(t);
+	updateLayout();
+}
+
+void StaffHolder::updateStaffs() {
+	m_data.clear();
+	max_id = 0;
+	addStaff(0);
+}
+
+void StaffHolder::addNewStaff(size_t i, size_t curr_id) {
+	if (curr_id >= max_id - 1)
+		addStaff(i);
+	else {
+		m_data.at(curr_id + 1)->newBegin(i);
+		m_data.at(curr_id + 1)->update();
+	}
 }
