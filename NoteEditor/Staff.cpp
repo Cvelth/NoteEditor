@@ -14,8 +14,8 @@ void Staff::initializeGL() {
 	glBlendFunc(GL_SRC_ALPHA, GL_SRC_COLOR);
 	glEnable(GL_BLEND);
 	
-	glEnable(GL_LINE_SMOOTH);
-	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+	//glEnable(GL_LINE_SMOOTH);
+	//glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
 	glEnable(GL_POLYGON_SMOOTH);
 	glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST);
 }
@@ -67,32 +67,61 @@ void Staff::drawNotes() {
 		drawNote(*it, offset);
 }
 
+
 void Staff::drawNote(Note * note, size_t& offset) {
-	if (note->getDuration() == 1) {
-		drawOuterOval(offset + 15, 85 - note->getPosition() * 5);
-		drawInnerOval(offset + 15, 85 - note->getPosition() * 5);
-		offset += 30;
+	switch (note->getDuration()) {
+		case 1:
+			drawWholeNote(offset + 15, 85 - note->getPosition() * 5);
+			break;
+		case 2:
+			drawHalfNote(offset + 15, 85 - note->getPosition() * 5, note->getOctave());
+			break;
 	}
+	if (note->getPosition() <= 1 || note->getPosition() == 13) 
+		drawBar(offset + 15, 85 - note->getPosition() * 5);
+
+	offset += 30;
 }
 
-void Staff::drawOuterOval(size_t x, size_t y) {
+void Staff::drawWholeNote(float x, float y) {
+	drawEllipse(x, y, 9, 5, 0.f);
+	drawEllipse(x, y, 4.5, 3.5, 1.f, M_PI * 5 / 12);
+}
+
+void Staff::drawHalfNote(float x, float y, bool up) {
+	drawEllipse(x, y, 6.875, 4.79, 0, -M_PI * 10 / 36);
+	drawEllipse(x, y, 5.3, 2.24, 1, -M_PI * 10/ 36);
+	drawStick(x, y, up);
+}
+
+void Staff::drawEllipse(float ox, float oy, float cx, float cy, float color, float angle) {
 	glBegin(GL_POLYGON);
-	glColor3f(0, 0, 0);
-	for (float f = 0; f < 2 * M_PI; f += M_PI / 10)
-		glVertex2f(9 * cosf(f) + x, 5 * sinf(f) + y);
+	glColor3f(color, color, color);
+	for (float f = 0; f < 2 * M_PI; f += M_PI / 10) {
+		float cf = cosf(angle);
+		float sf = -sinf(angle);
+		float fx = cx * cosf(f);
+		float fy = cy * sinf(f);
+		glVertex2f(fx * cf - fy * sf + ox, fx * sf + fy * cf + oy);
+	}
 	glEnd();
 }
 
-void Staff::drawInnerOval(size_t x, size_t y) {
-	glBegin(GL_POLYGON);
-	glColor3f(1, 1, 1);
-	for (float f = 0; f < 2 * M_PI; f += M_PI / 10) {
-		float cx =  cosf(M_PI / 3);
-		float cy = -sinf(M_PI / 3);
-		float fx = 4.5 * cosf(f);
-		float fy = 3.5 * sinf(f);
-		glVertex2f(fx * cx - fy * cy + x, fx * cy + fy * cx + y);
-	}
+void Staff::drawStick(float x, float y, bool up) {
+	glBegin(GL_LINES);
+	glColor3f(0, 0, 0);
+	glVertex2f(x + 5.8, y + 3);
+	glVertex2f(x + 5.8, y + 3 + (up ? +39 : -39));
+	glVertex2f(x + 5.8 - 1, y + 3 + (up ? +39 : -39));
+	glVertex2f(x + 5.8 - 1, y + 3);
+	glEnd();
+}
+
+void Staff::drawBar(float x, float y) {
+	glBegin(GL_LINES);
+	glColor3f(0, 0, 0);
+	glVertex2f(x - 12, y);
+	glVertex2f(x + 12, y);
 	glEnd();
 }
 

@@ -17,3 +17,7 @@ void AbstractNote::setOctave(bool octave) {
 size_t AbstractNote::getDuration() {
 	return m_duration;
 }
+
+bool AbstractNote::getOctave() {
+	return m_octave;
+}

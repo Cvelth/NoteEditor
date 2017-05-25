@@ -22,8 +22,11 @@ public:
 	Staff(DurationHolder* duration, NoteList* nodes);
 	void drawNotes();
 	void drawNote(Note* note, size_t& offset);
-	void drawOuterOval(size_t x, size_t y);
-	void drawInnerOval(size_t x, size_t y);
+	void drawWholeNote(float x, float y);
+	void drawHalfNote(float x, float y, bool up);
+	void drawEllipse(float ox, float oy, float cx, float cy, float color = 0.f, float angle = 0.f);
+	void drawStick(float x, float y, bool up);
+	void drawBar(float x, float y);
 	void drawStaff();
 	void drawLine(float x);
 };

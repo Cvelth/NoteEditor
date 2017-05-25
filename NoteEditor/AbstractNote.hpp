@@ -10,4 +10,5 @@ public:
 	void setOctave(bool octave);
 
 	size_t getDuration();
+	bool getOctave();
 };
