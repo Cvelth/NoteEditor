@@ -8,4 +8,6 @@ protected:
 public:
 	void setDuration(size_t duration);
 	void setOctave(bool octave);
+
+	size_t getDuration();
 };

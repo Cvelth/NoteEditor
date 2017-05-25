@@ -69,6 +69,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AbstractNote.cpp" />
+    <ClCompile Include="Controller.cpp" />
     <ClCompile Include="DurationButton.cpp" />
     <ClCompile Include="DurationHolder.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_DurationButton.cpp">
@@ -99,6 +100,9 @@
     <ClCompile Include="MultiNote.cpp" />
     <ClCompile Include="Note.cpp" />
     <ClCompile Include="NoteEditor.cpp" />
+    <ClCompile Include="NoteList.cpp" />
+    <ClCompile Include="Staff.cpp" />
+    <ClCompile Include="StaffHolder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="NoteEditor.h">
@@ -126,6 +130,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractNote.hpp" />
+    <ClInclude Include="Controller.hpp" />
+    <ClInclude Include="NoteList.hpp" />
+    <ClInclude Include="Staff.hpp" />
+    <ClInclude Include="StaffHolder.hpp" />
     <CustomBuild Include="DurationHolder.hpp">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing DurationHolder.hpp...</Message>

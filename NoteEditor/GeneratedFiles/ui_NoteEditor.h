@@ -15,7 +15,6 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -32,9 +31,6 @@ public:
     QVBoxLayout *StuffLayout;
     QHBoxLayout *horizontalLayout_3;
     QHBoxLayout *durationLayout;
-    QVBoxLayout *verticalLayout;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
 
     void setupUi(QWidget *NoteEditorClass)
     {
@@ -50,7 +46,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 686, 440));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 686, 492));
         horizontalLayout = new QHBoxLayout(scrollAreaWidgetContents);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
@@ -74,22 +70,6 @@ public:
 
         horizontalLayout_3->addLayout(durationLayout);
 
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setSpacing(6);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        pushButton = new QPushButton(NoteEditorClass);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-
-        verticalLayout->addWidget(pushButton);
-
-        pushButton_2 = new QPushButton(NoteEditorClass);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-
-        verticalLayout->addWidget(pushButton_2);
-
-
-        horizontalLayout_3->addLayout(verticalLayout);
-
 
         verticalLayout_2->addLayout(horizontalLayout_3);
 
@@ -102,8 +82,6 @@ public:
     void retranslateUi(QWidget *NoteEditorClass)
     {
         NoteEditorClass->setWindowTitle(QApplication::translate("NoteEditorClass", "NoteEditor", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("NoteEditorClass", "add", Q_NULLPTR));
-        pushButton_2->setText(QApplication::translate("NoteEditorClass", "remove", Q_NULLPTR));
     } // retranslateUi
 
 };

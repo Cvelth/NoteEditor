@@ -1,11 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
-      <Extensions>qrc;*</Extensions>
-      <ParseFiles>false</ParseFiles>
-    </Filter>
     <Filter Include="Generated Files">
       <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
       <Extensions>moc;h;cpp</Extensions>
@@ -30,6 +25,21 @@
     <Filter Include="Controller">
       <UniqueIdentifier>{a4b64a4b-202c-4843-979f-5b65ee7bc46e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="View\MainWindow">
+      <UniqueIdentifier>{c1153fa7-0743-45b4-8cf5-f339fb468f71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View\Duration">
+      <UniqueIdentifier>{b03cc20a-9108-419c-ae98-d48280d32fce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View\Stuff">
+      <UniqueIdentifier>{40e12573-b1bb-4b5c-9304-e49ee566234f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Note">
+      <UniqueIdentifier>{25666737-c340-492d-b77e-ba9f579feaa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\NoteList">
+      <UniqueIdentifier>{0acb37dd-2376-442c-9b8b-e33cd7fc820a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GeneratedFiles\Debug\moc_NoteEditor.cpp">
@@ -41,25 +51,7 @@
     <ClCompile Include="GeneratedFiles\qrc_NoteEditor.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="NoteEditor.cpp">
-      <Filter>View</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="AbstractNote.cpp">
-      <Filter>Model</Filter>
-    </ClCompile>
-    <ClCompile Include="Note.cpp">
-      <Filter>Model</Filter>
-    </ClCompile>
-    <ClCompile Include="MultiNote.cpp">
-      <Filter>Model</Filter>
-    </ClCompile>
-    <ClCompile Include="DurationButton.cpp">
-      <Filter>View</Filter>
-    </ClCompile>
-    <ClCompile Include="DurationHolder.cpp">
-      <Filter>View</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_DurationButton.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
@@ -72,39 +64,81 @@
     <ClCompile Include="GeneratedFiles\Release\moc_DurationHolder.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="NoteEditor.cpp">
+      <Filter>View\MainWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="DurationButton.cpp">
+      <Filter>View\Duration</Filter>
+    </ClCompile>
+    <ClCompile Include="DurationHolder.cpp">
+      <Filter>View\Duration</Filter>
+    </ClCompile>
+    <ClCompile Include="Staff.cpp">
+      <Filter>View\Stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractNote.cpp">
+      <Filter>Model\Note</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiNote.cpp">
+      <Filter>Model\Note</Filter>
+    </ClCompile>
+    <ClCompile Include="Note.cpp">
+      <Filter>Model\Note</Filter>
+    </ClCompile>
+    <ClCompile Include="NoteList.cpp">
+      <Filter>Model\NoteList</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="StaffHolder.cpp">
+      <Filter>Controller</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="NoteEditor.ui">
-      <Filter>View</Filter>
-    </CustomBuild>
-    <CustomBuild Include="NoteEditor.h">
-      <Filter>View</Filter>
+      <Filter>View\MainWindow</Filter>
     </CustomBuild>
     <CustomBuild Include="NoteEditor.qrc">
-      <Filter>View</Filter>
+      <Filter>View\MainWindow</Filter>
+    </CustomBuild>
+    <CustomBuild Include="NoteEditor.h">
+      <Filter>View\MainWindow</Filter>
     </CustomBuild>
     <CustomBuild Include="DurationButton.hpp">
-      <Filter>View</Filter>
+      <Filter>View\Duration</Filter>
     </CustomBuild>
     <CustomBuild Include="DurationHolder.hpp">
-      <Filter>View</Filter>
+      <Filter>View\Duration</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_NoteEditor.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="Note.hpp">
-      <Filter>Model</Filter>
-    </ClInclude>
-    <ClInclude Include="AbstractNote.hpp">
-      <Filter>Model</Filter>
-    </ClInclude>
     <ClInclude Include="Exceptions.h">
       <Filter>Controller</Filter>
     </ClInclude>
+    <ClInclude Include="Staff.hpp">
+      <Filter>View\Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractNote.hpp">
+      <Filter>Model\Note</Filter>
+    </ClInclude>
     <ClInclude Include="MultiNote.h">
-      <Filter>Model</Filter>
+      <Filter>Model\Note</Filter>
+    </ClInclude>
+    <ClInclude Include="Note.hpp">
+      <Filter>Model\Note</Filter>
+    </ClInclude>
+    <ClInclude Include="NoteList.hpp">
+      <Filter>Model\NoteList</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.hpp">
+      <Filter>Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="StaffHolder.hpp">
+      <Filter>Controller</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

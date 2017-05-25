@@ -1,9 +1,8 @@
 #pragma once
-
 #include <QtWidgets/QWidget>
 #include "ui_NoteEditor.h"
+#include "Controller.hpp"
 
-class DurationHolder;
 
 class NoteEditor : public QWidget
 {
@@ -12,7 +11,9 @@ class NoteEditor : public QWidget
 public:
 	NoteEditor(QWidget *parent = Q_NULLPTR);
 
+protected:
+
 private:
+	Controller m_controller;
 	Ui::NoteEditorClass ui;
-	DurationHolder* m_duration;
 };
