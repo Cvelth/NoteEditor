@@ -10,5 +10,5 @@ void Controller::initializeDurationSystem(QLayout * layout) {
 }
 
 void Controller::initializeStaffSystem(QLayout * layout) {
-	m_staffs = new StaffHolder(layout);
+	m_staffs = new StaffHolder(layout, m_duration);
 }

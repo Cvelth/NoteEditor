@@ -2,9 +2,10 @@
 #include "Staff.hpp"
 #include "qlayout.h"
 
-StaffHolder::StaffHolder(QLayout * layout) {
+StaffHolder::StaffHolder(QLayout * layout, DurationHolder * duration) {
+	m_duration = duration;
 	m_layout = layout;
-	auto t = new Staff();
+	auto t = new Staff(m_duration);
 	m_data.push_back(t);
 	updateLayout();
 }

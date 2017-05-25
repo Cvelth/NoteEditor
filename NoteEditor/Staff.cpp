@@ -1,4 +1,7 @@
 #include "Staff.hpp"
+#include "qevent.h"
+#include "Note.hpp"
+#include "DurationHolder.hpp"
 
 void Staff::initializeGL() {
 	initializeOpenGLFunctions();
@@ -20,9 +23,27 @@ void Staff::paintGL() {
 	drawStaff();
 }
 
-Staff::Staff() {
-	setFixedHeight(height);
-	setMinimumHeight(height);
+void Staff::mousePressEvent(QMouseEvent * e) {
+	if (e->button() == Qt::MouseButton::LeftButton) {
+		Note* note = generateNote(e->y());
+	}
+}
+
+Note * Staff::generateNote(size_t y) {
+	if (y >= 22 && y <= 82)
+		for (int i = 22, j = 0; i < 82; i += 10, j+=2) {
+			if (y < i + 6)
+				return new Note(j, m_duration->getCurrentDuration());
+			else if (y < i + 10) 
+				return new Note(j + 1, m_duration->getCurrentDuration());
+		}
+	return nullptr;
+}
+
+Staff::Staff(DurationHolder* duration) {
+	m_duration = duration;
+	setFixedHeight(HEIGHT);
+	setMinimumHeight(HEIGHT);
 }
 
 void Staff::drawNotes() {
@@ -35,7 +56,7 @@ void Staff::drawStaff() {
 	glColor3f(0, 0, 0);
 
 	for (int i = -2; i <= 2; i++)
-		drawLine(0.5 * height - 0.1 * i * height);
+		drawLine(0.5 * HEIGHT - 0.1 * i * HEIGHT);
 
 	glEnd();
 }
