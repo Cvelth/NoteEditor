@@ -68,6 +68,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AbstractNote.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_NoteEditor.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -81,6 +82,8 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MultiNote.cpp" />
+    <ClCompile Include="Note.cpp" />
     <ClCompile Include="NoteEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -108,7 +111,11 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractNote.hpp" />
+    <ClInclude Include="Exceptions.h" />
     <ClInclude Include="GeneratedFiles\ui_NoteEditor.h" />
+    <ClInclude Include="MultiNote.h" />
+    <ClInclude Include="Note.hpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="NoteEditor.qrc">
