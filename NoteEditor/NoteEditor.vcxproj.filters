@@ -54,6 +54,24 @@
     <ClCompile Include="MultiNote.cpp">
       <Filter>Model</Filter>
     </ClCompile>
+    <ClCompile Include="DurationButton.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="DurationHolder.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_DurationButton.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_DurationButton.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_DurationHolder.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_DurationHolder.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="NoteEditor.ui">
@@ -63,6 +81,12 @@
       <Filter>View</Filter>
     </CustomBuild>
     <CustomBuild Include="NoteEditor.qrc">
+      <Filter>View</Filter>
+    </CustomBuild>
+    <CustomBuild Include="DurationButton.hpp">
+      <Filter>View</Filter>
+    </CustomBuild>
+    <CustomBuild Include="DurationHolder.hpp">
       <Filter>View</Filter>
     </CustomBuild>
   </ItemGroup>

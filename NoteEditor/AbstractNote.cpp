@@ -10,9 +10,6 @@ void AbstractNote::setDuration(size_t duration) {
 		throw IncorrectInputException();
 }
 
-void AbstractNote::setOctave(size_t octave) {
-	if (octave - 1 < 3)
-		m_octave = octave;
-	else
-		throw IncorrectInputException();
+void AbstractNote::setOctave(bool octave) {
+	m_octave = octave;
 }

@@ -4,11 +4,8 @@
 class AbstractNote {
 protected:
 	size_t m_duration;
-	size_t m_octave;
+	bool m_octave;
 public:
 	void setDuration(size_t duration);
-
-	void setOctave(size_t octave);
-	
-
+	void setOctave(bool octave);
 };
