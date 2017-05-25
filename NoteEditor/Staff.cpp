@@ -11,7 +11,7 @@ void Staff::initializeGL() {
 	initializeOpenGLFunctions();
 	glClearColor(1, 1, 1, 1);
 
-	glBlendFunc(GL_SRC_ALPHA, GL_ZERO);
+	glBlendFunc(GL_SRC_ALPHA, GL_SRC_COLOR);
 	glEnable(GL_BLEND);
 	
 	glEnable(GL_LINE_SMOOTH);
@@ -70,6 +70,7 @@ void Staff::drawNotes() {
 void Staff::drawNote(Note * note, size_t& offset) {
 	if (note->getDuration() == 1) {
 		drawOuterOval(offset + 15, 85 - note->getPosition() * 5);
+		drawInnerOval(offset + 15, 85 - note->getPosition() * 5);
 		offset += 30;
 	}
 }
@@ -77,8 +78,21 @@ void Staff::drawNote(Note * note, size_t& offset) {
 void Staff::drawOuterOval(size_t x, size_t y) {
 	glBegin(GL_POLYGON);
 	glColor3f(0, 0, 0);
-	for (float f = 0; f < 2 * M_PI; f += M_PI / 5)
+	for (float f = 0; f < 2 * M_PI; f += M_PI / 10)
 		glVertex2f(9 * cosf(f) + x, 5 * sinf(f) + y);
+	glEnd();
+}
+
+void Staff::drawInnerOval(size_t x, size_t y) {
+	glBegin(GL_POLYGON);
+	glColor3f(1, 1, 1);
+	for (float f = 0; f < 2 * M_PI; f += M_PI / 10) {
+		float cx =  cosf(M_PI / 3);
+		float cy = -sinf(M_PI / 3);
+		float fx = 4.5 * cosf(f);
+		float fy = 3.5 * sinf(f);
+		glVertex2f(fx * cx - fy * cy + x, fx * cy + fy * cx + y);
+	}
 	glEnd();
 }
 

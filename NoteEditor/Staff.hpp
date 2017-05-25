@@ -23,6 +23,7 @@ public:
 	void drawNotes();
 	void drawNote(Note* note, size_t& offset);
 	void drawOuterOval(size_t x, size_t y);
+	void drawInnerOval(size_t x, size_t y);
 	void drawStaff();
 	void drawLine(float x);
 };
