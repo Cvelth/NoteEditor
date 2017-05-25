@@ -11,8 +11,8 @@ enum class NoteType {
 class Note : public AbstractNote {
 protected:
 	NoteType m_noteType;
-	bool m_flat;
-	bool m_sharp;
+	bool m_flat = false;
+	bool m_sharp = false;
 
 public:
 	Note(size_t note, size_t duration);
@@ -31,4 +31,5 @@ public:
 		m_flat = false;
 		m_sharp = false;
 	}
+	size_t getPosition();
 };

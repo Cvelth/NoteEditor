@@ -2,10 +2,22 @@
 #include "qevent.h"
 #include "Note.hpp"
 #include "DurationHolder.hpp"
+#include "NoteList.hpp"
+
+#define _USE_MATH_DEFINES
+#include <math.h>
 
 void Staff::initializeGL() {
 	initializeOpenGLFunctions();
 	glClearColor(1, 1, 1, 1);
+
+	glBlendFunc(GL_SRC_ALPHA, GL_ZERO);
+	glEnable(GL_BLEND);
+	
+	glEnable(GL_LINE_SMOOTH);
+	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+	glEnable(GL_POLYGON_SMOOTH);
+	glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST);
 }
 
 void Staff::resizeGL(int w, int h) {
@@ -17,7 +29,7 @@ void Staff::resizeGL(int w, int h) {
 }
 
 void Staff::paintGL() {
-	glClear(GL_COLOR_BUFFER_BIT);// | GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT);
 
 	drawNotes();
 	drawStaff();
@@ -25,13 +37,15 @@ void Staff::paintGL() {
 
 void Staff::mousePressEvent(QMouseEvent * e) {
 	if (e->button() == Qt::MouseButton::LeftButton) {
-		Note* note = generateNote(e->y());
+		if (auto note = generateNote(e->y()))
+			m_notes->addNote(note);
 	}
+	update();
 }
 
 Note * Staff::generateNote(size_t y) {
-	if (y >= 22 && y <= 82)
-		for (int i = 22, j = 0; i < 82; i += 10, j+=2) {
+	if (y >= 12 && y <= 82)
+		for (int i = 12, j = 0; i < 82; i += 10, j+=2) {
 			if (y < i + 6)
 				return new Note(j, m_duration->getCurrentDuration());
 			else if (y < i + 10) 
@@ -40,14 +54,32 @@ Note * Staff::generateNote(size_t y) {
 	return nullptr;
 }
 
-Staff::Staff(DurationHolder* duration) {
+Staff::Staff(DurationHolder * duration, NoteList * notes) {
 	m_duration = duration;
+	m_notes = notes;
 	setFixedHeight(HEIGHT);
 	setMinimumHeight(HEIGHT);
 }
 
 void Staff::drawNotes() {
+	size_t offset = 0;
+	for (auto it = m_notes->begin(); it != m_notes->end(); it++)
+		drawNote(*it, offset);
+}
 
+void Staff::drawNote(Note * note, size_t& offset) {
+	if (note->getDuration() == 1) {
+		drawOuterOval(offset + 15, 85 - note->getPosition() * 5);
+		offset += 30;
+	}
+}
+
+void Staff::drawOuterOval(size_t x, size_t y) {
+	glBegin(GL_POLYGON);
+	glColor3f(0, 0, 0);
+	for (float f = 0; f < 2 * M_PI; f += M_PI / 5)
+		glVertex2f(9 * cosf(f) + x, 5 * sinf(f) + y);
+	glEnd();
 }
 
 void Staff::drawStaff() {

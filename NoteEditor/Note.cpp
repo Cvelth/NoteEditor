@@ -12,3 +12,7 @@ Note::Note(size_t note, size_t duration) {
 		m_octave = true;
 	}
 }
+
+size_t Note::getPosition() {
+	return size_t(m_noteType) + (m_octave ? 7 : 0);
+}
