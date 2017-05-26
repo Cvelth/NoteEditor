@@ -63,7 +63,7 @@ void Staff::drawNotes() {
 	size_t offset = 0;
 	auto i = m_begin;
 	for (; i < m_notes->size(); i++)
-		if (width() - offset > 30)
+		if (width() - offset > 35)
 			drawNote(m_notes->at(i), offset);
 		else {
 			emit OverflowSignal(i, m_id);
@@ -72,6 +72,10 @@ void Staff::drawNotes() {
 }
 
 void Staff::drawNote(Note * note, size_t& offset) {
+	note->setFlat();
+	if (note->isFlat())
+		drawFlat(offset + 15, 85 - note->getPosition() * 5, true, note->getOctave());
+	offset += 15;
 	switch (note->getDuration()) {
 		case 1:
 			drawWholeNote(offset + 15, 85 - note->getPosition() * 5);
@@ -223,6 +227,35 @@ void Staff::drawStaff() {
 void Staff::drawLine(float y) {
 	glVertex2f(0, y);
 	glVertex2f(width(), y);
+}
+
+void Staff::drawFlat(float x, float y, bool up, float offset) {
+	glBegin(GL_QUAD_STRIP);
+	glColor3f(0, 0, 0);
+	x += 10.8;
+	y -= 2;
+	glVertex2f(x - 6    * 2.5, y + D(up) * (offset + 19));
+	glVertex2f(x - 6.3  * 2.5, y + D(up) * (offset + 19));
+	glVertex2f(x - 6.3  * 2.5, y + D(up) * (offset - 6.5));
+	glVertex2f(x - 6    * 2.5, y + D(up) * (offset - 4.8));
+	glVertex2f(x - 6    * 2.5, y + D(up) * (offset - 5.1));
+	glVertex2f(x - 5.2  * 2.5, y + D(up) * (offset - 4.6));
+	glVertex2f(x - 4.8  * 2.5, y + D(up) * (offset - 2.3));
+	glVertex2f(x - 4.25 * 2.5, y + D(up) * (offset - 2.6));
+	glVertex2f(x - 4.5  * 2.5, y + D(up) * (offset - 0.6));
+	glVertex2f(x - 3.5  * 2.5, y + D(up) * (offset - 1.1));
+	glVertex2f(x - 4.4  * 2.5, y + D(up) * (offset + 1.2));
+	glVertex2f(x - 3.25 * 2.5, y + D(up) * (offset + 2.25));
+	glVertex2f(x - 4.5  * 2.5, y + D(up) * (offset + 2.6));
+	glVertex2f(x - 3.4  * 2.5, y + D(up) * (offset + 3.9));
+	glVertex2f(x - 4.9  * 2.5, y + D(up) * (offset + 4.4));
+	glVertex2f(x - 4    * 2.5, y + D(up) * (offset + 6.4));
+	glVertex2f(x - 5.5  * 2.5, y + D(up) * (offset + 4.2));
+	glVertex2f(x - 5.2  * 2.5, y + D(up) * (offset + 6.25));
+	glVertex2f(x - 6    * 2.5, y + D(up) * (offset + 2.3));
+	glVertex2f(x - 6    * 2.5, y + D(up) * (offset + 4.75));
+	
+	glEnd();
 }
 
 Staff::Staff(DurationHolder * duration, NoteList * notes, size_t begin, size_t id) 

@@ -35,4 +35,7 @@ public:
 	}
 	size_t getPosition();
 	std::string getMidi();
+	size_t offset();
+	bool isFlat();
+	bool isSharp();
 };

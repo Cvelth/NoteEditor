@@ -56,3 +56,15 @@ std::string Note::getMidi() {
 	ret += getDurationString(m_duration);
 	return ret;
 }
+
+size_t Note::offset() {
+	return (m_flat || m_sharp) ? 35 : 30;
+}
+
+bool Note::isFlat() {
+	return m_flat;
+}
+
+bool Note::isSharp() {
+	return m_sharp;
+}
