@@ -1,6 +1,7 @@
 #pragma once
 #include "AbstractNote.hpp"
 #include <vector>
+#include <string>
 #include <cmath>
 using namespace std;
 
@@ -32,4 +33,5 @@ public:
 		m_sharp = false;
 	}
 	size_t getPosition();
+	std::string getMidi();
 };

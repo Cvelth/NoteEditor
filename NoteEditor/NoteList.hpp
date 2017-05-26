@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <string>
 
 class Note;
 
@@ -11,4 +12,5 @@ public:
 	void addNote(Note* note);
 	size_t size();
 	Note* at(size_t i);
+	std::string getMidi();
 };

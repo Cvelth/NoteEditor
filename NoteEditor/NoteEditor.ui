@@ -1,53 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>NoteEditorClass</class>
- <widget class="QWidget" name="NoteEditorClass">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>706</width>
-    <height>522</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>NoteEditor</string>
-  </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
-   <item>
-    <widget class="QScrollArea" name="scrollArea">
-     <property name="widgetResizable">
-      <bool>true</bool>
-     </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents">
-      <property name="geometry">
-       <rect>
+  <class>NoteEditorClass</class>
+  <widget class="QWidget" name="NoteEditorClass">
+    <property name="geometry">
+      <rect>
         <x>0</x>
         <y>0</y>
-        <width>686</width>
-        <height>492</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <layout class="QVBoxLayout" name="StuffLayout"/>
-       </item>
-      </layout>
-     </widget>
-    </widget>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <layout class="QHBoxLayout" name="durationLayout"/>
-     </item>
+        <width>706</width>
+        <height>522</height>
+      </rect>
+    </property>
+    <property name="windowTitle">
+      <string>NoteEditor</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+        <widget class="QScrollArea" name="scrollArea">
+          <property name="widgetResizable">
+            <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents">
+            <property name="geometry">
+              <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>686</width>
+                <height>463</height>
+              </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+                <layout class="QVBoxLayout" name="StuffLayout"/>
+              </item>
+            </layout>
+          </widget>
+        </widget>
+      </item>
+      <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+            <layout class="QHBoxLayout" name="durationLayout"/>
+          </item>
+        </layout>
+      </item>
+      <item>
+        <widget class="QPushButton" name="playButton">
+          <property name="text">
+            <string>Play</string>
+          </property>
+        </widget>
+      </item>
     </layout>
-   </item>
-  </layout>
- </widget>
- <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="NoteEditor.qrc"/>
- </resources>
- <connections/>
+  </widget>
+  <layoutdefault spacing="6" margin="11"/>
+  <resources>
+    <include location="NoteEditor.qrc"/>
+  </resources>
+  <connections/>
 </ui>
