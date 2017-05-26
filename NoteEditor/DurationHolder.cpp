@@ -18,6 +18,9 @@ size_t DurationHolder::getCurrentDuration() {
 	return m_current;
 }
 
+void DurationHolder::activateFirst() {
+	(*m_buttons.begin())->click();
+}
 
 void DurationHolder::setDuration(size_t duration) {
 	m_current = duration;

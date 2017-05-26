@@ -12,6 +12,7 @@ public:
 	DurationHolder(size_t number, QLayout* layout);
 	~DurationHolder();
 	size_t getCurrentDuration();
+	void activateFirst();
 private slots:
 	void setDuration(size_t duration);
 };

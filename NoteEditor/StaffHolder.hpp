@@ -16,8 +16,9 @@ private:
 	DurationHolder* m_duration;
 	NoteList* m_notes;
 	size_t max_id;
+	size_t* m_currentType;
 public:
-	StaffHolder(QLayout* layout, DurationHolder* duration, NoteList* notes);
+	StaffHolder(QLayout* layout, DurationHolder* duration, NoteList* notes, size_t* type);
 	void clearLayout(QLayout * layout);
 	void updateLayout();
 	void addStaff(size_t id);

@@ -14,6 +14,7 @@ private:
 	NoteList* m_notes;
 	size_t m_begin;
 	size_t m_id;
+	size_t* m_currentType;
 protected:
 	virtual void initializeGL() override;
 	virtual void resizeGL(int w, int h) override;
@@ -36,8 +37,9 @@ protected:
 	void drawSubHook(float x, float y, bool up, float offset);
 	void drawStaff();
 	void drawLine(float x);
+	void drawFlat(float x, float y, bool up, float offset);
 public:
-	Staff(DurationHolder* duration, NoteList* notes, size_t begin, size_t id);
+	Staff(DurationHolder* duration, NoteList* notes, size_t begin, size_t id, size_t* type);
 	
 	void newBegin(size_t begin);
 signals:
