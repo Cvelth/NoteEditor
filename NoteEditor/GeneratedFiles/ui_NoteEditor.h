@@ -37,7 +37,9 @@ public:
     QRadioButton *normal;
     QRadioButton *flat;
     QRadioButton *sharp;
+    QHBoxLayout *horizontalLayout_4;
     QPushButton *playButton;
+    QPushButton *exportButton;
 
     void setupUi(QWidget *NoteEditorClass)
     {
@@ -53,7 +55,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 686, 438));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 686, 436));
         horizontalLayout = new QHBoxLayout(scrollAreaWidgetContents);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
@@ -102,10 +104,23 @@ public:
 
         verticalLayout_2->addLayout(horizontalLayout_2);
 
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
         playButton = new QPushButton(NoteEditorClass);
         playButton->setObjectName(QStringLiteral("playButton"));
 
-        verticalLayout_2->addWidget(playButton);
+        horizontalLayout_4->addWidget(playButton);
+
+        exportButton = new QPushButton(NoteEditorClass);
+        exportButton->setObjectName(QStringLiteral("exportButton"));
+
+        horizontalLayout_4->addWidget(exportButton);
+
+        horizontalLayout_4->setStretch(0, 3);
+        horizontalLayout_4->setStretch(1, 1);
+
+        verticalLayout_2->addLayout(horizontalLayout_4);
 
 
         retranslateUi(NoteEditorClass);
@@ -120,6 +135,7 @@ public:
         flat->setText(QApplication::translate("NoteEditorClass", "Flat", Q_NULLPTR));
         sharp->setText(QApplication::translate("NoteEditorClass", "Sharp", Q_NULLPTR));
         playButton->setText(QApplication::translate("NoteEditorClass", "Play", Q_NULLPTR));
+        exportButton->setText(QApplication::translate("NoteEditorClass", "Export", Q_NULLPTR));
     } // retranslateUi
 
 };

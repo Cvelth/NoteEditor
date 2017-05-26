@@ -23,6 +23,10 @@ void Controller::play() {
 	m_player->play(m_notes);
 }
 
+void Controller::exportMid(std::string filename) {
+	m_player->exportMid(m_notes, filename);
+}
+
 void Controller::setCurrentNoteType(size_t type) {
 	if (type > 2)
 		throw IncorrectInputException();

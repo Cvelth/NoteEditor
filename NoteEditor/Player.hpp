@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 class NoteList;
 namespace CFugue {
@@ -10,4 +11,5 @@ class Player {
 public:
 	Player();
 	void play(NoteList* notes);
+	void exportMid(NoteList* notes, std::string&filename);
 };

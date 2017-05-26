@@ -21,5 +21,6 @@ public:
 	void initializeDurationSystem(QLayout* layout);
 	void initializeStaffSystem(QLayout* layout);
 	void play();
+	void exportMid(std::string filename);
 	void setCurrentNoteType(size_t type);
 };
