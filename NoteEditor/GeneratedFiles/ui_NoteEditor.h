@@ -15,6 +15,7 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -31,6 +32,7 @@ public:
     QVBoxLayout *StuffLayout;
     QHBoxLayout *horizontalLayout_3;
     QHBoxLayout *durationLayout;
+    QPushButton *playButton;
 
     void setupUi(QWidget *NoteEditorClass)
     {
@@ -46,7 +48,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 686, 492));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 686, 463));
         horizontalLayout = new QHBoxLayout(scrollAreaWidgetContents);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
@@ -73,6 +75,11 @@ public:
 
         verticalLayout_2->addLayout(horizontalLayout_3);
 
+        playButton = new QPushButton(NoteEditorClass);
+        playButton->setObjectName(QStringLiteral("playButton"));
+
+        verticalLayout_2->addWidget(playButton);
+
 
         retranslateUi(NoteEditorClass);
 
@@ -82,6 +89,7 @@ public:
     void retranslateUi(QWidget *NoteEditorClass)
     {
         NoteEditorClass->setWindowTitle(QApplication::translate("NoteEditorClass", "NoteEditor", Q_NULLPTR));
+        playButton->setText(QApplication::translate("NoteEditorClass", "Play", Q_NULLPTR));
     } // retranslateUi
 
 };

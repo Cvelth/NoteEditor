@@ -1,4 +1,5 @@
 #include "NoteList.hpp"
+#include "Note.hpp"
 
 NoteList::NoteList() {
 }
@@ -13,4 +14,11 @@ size_t NoteList::size() {
 
 Note * NoteList::at(size_t i) {
 	return m_data.at(i);
+}
+
+std::string NoteList::getMidi() {
+	std::string ret;
+	for (auto note : m_data)
+		ret += note->getMidi() + ' ';
+	return ret;
 }

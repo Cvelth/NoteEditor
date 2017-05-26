@@ -9,4 +9,5 @@ NoteEditor::NoteEditor(QWidget *parent)
 	ui.setupUi(this);
 	m_controller.initializeDurationSystem(ui.durationLayout);
 	m_controller.initializeStaffSystem(ui.StuffLayout);
+	connect(ui.playButton, &QPushButton::clicked, &m_controller, &Controller::play);
 }

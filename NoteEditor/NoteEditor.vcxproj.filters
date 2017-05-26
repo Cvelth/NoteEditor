@@ -40,14 +40,14 @@
     <Filter Include="Model\NoteList">
       <UniqueIdentifier>{0acb37dd-2376-442c-9b8b-e33cd7fc820a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Controller\Staff">
+      <UniqueIdentifier>{ea38424b-2075-4d38-b513-4490770c1d14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Controller\Player">
+      <UniqueIdentifier>{2251bf05-c326-4060-9c32-fe3829a005a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GeneratedFiles\Debug\moc_NoteEditor.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_NoteEditor.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\qrc_NoteEditor.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
@@ -91,9 +91,6 @@
     <ClCompile Include="Controller.cpp">
       <Filter>Controller</Filter>
     </ClCompile>
-    <ClCompile Include="StaffHolder.cpp">
-      <Filter>Controller</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_Staff.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
@@ -105,6 +102,24 @@
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_Staff.cpp">
       <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_NoteEditor.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Controller.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Controller.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_NoteEditor.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="StaffHolder.cpp">
+      <Filter>Controller\Staff</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Controller\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -126,31 +141,34 @@
     <CustomBuild Include="Staff.hpp">
       <Filter>View\Stuff</Filter>
     </CustomBuild>
-    <CustomBuild Include="StaffHolder.hpp">
+    <CustomBuild Include="Controller.hpp">
       <Filter>Controller</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GeneratedFiles\ui_NoteEditor.h">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="AbstractNote.hpp">
+      <Filter>Model\Note</Filter>
+    </CustomBuild>
+    <CustomBuild Include="MultiNote.h">
+      <Filter>Model\Note</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Note.hpp">
+      <Filter>Model\Note</Filter>
+    </CustomBuild>
+    <CustomBuild Include="NoteList.hpp">
+      <Filter>Model\NoteList</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Exceptions.h">
+      <Filter>Controller</Filter>
+    </CustomBuild>
+    <CustomBuild Include="StaffHolder.hpp">
+      <Filter>Controller\Staff</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GeneratedFiles\ui_NoteEditor.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Exceptions.h">
-      <Filter>Controller</Filter>
-    </ClInclude>
-    <ClInclude Include="AbstractNote.hpp">
-      <Filter>Model\Note</Filter>
-    </ClInclude>
-    <ClInclude Include="MultiNote.h">
-      <Filter>Model\Note</Filter>
-    </ClInclude>
-    <ClInclude Include="Note.hpp">
-      <Filter>Model\Note</Filter>
-    </ClInclude>
-    <ClInclude Include="NoteList.hpp">
-      <Filter>Model\NoteList</Filter>
-    </ClInclude>
-    <ClInclude Include="Controller.hpp">
-      <Filter>Controller</Filter>
+    <ClInclude Include="Player.hpp">
+      <Filter>Controller\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
