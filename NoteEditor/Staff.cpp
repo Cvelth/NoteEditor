@@ -39,6 +39,8 @@ void Staff::mousePressEvent(QMouseEvent * e) {
 	if (e->button() == Qt::MouseButton::LeftButton) {
 		if (auto note = generateNote(e->y() - 5))
 			m_notes->addNote(note);
+	} else if (e->button() == Qt::MouseButton::RightButton) {
+		m_notes->undo();
 	}
 	emit updateStaffs();
 	//update();

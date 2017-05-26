@@ -14,4 +14,5 @@ public:
 	Note* at(size_t i);
 	std::string getMidi();
 	void clear();
+	void undo();
 };

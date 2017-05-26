@@ -26,3 +26,7 @@ std::string NoteList::getMidi() {
 void NoteList::clear() {
 	m_data.clear();
 }
+
+void NoteList::undo() {
+	m_data.pop_back();
+}
