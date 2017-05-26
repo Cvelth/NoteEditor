@@ -37,7 +37,7 @@ void Staff::paintGL() {
 
 void Staff::mousePressEvent(QMouseEvent * e) {
 	if (e->button() == Qt::MouseButton::LeftButton) {
-		if (auto note = generateNote(e->y()))
+		if (auto note = generateNote(e->y() - 5))
 			m_notes->addNote(note);
 	}
 	emit updateStaffs();
@@ -89,8 +89,10 @@ void Staff::drawNote(Note * note, size_t& offset) {
 			drawSixteenthNote(offset + 15, 85 - note->getPosition() * 5, note->getOctave());
 			break;
 	}
-	if (note->getPosition() <= 1 || note->getPosition() == 13) 
+	if (note->getPosition() == 1 || note->getPosition() == 13) 
 		drawBar(offset + 15, 85 - note->getPosition() * 5);
+	else if (note->getPosition() == 0)
+		drawBar(offset + 15, 85 - note->getPosition() * 5 - 5);
 
 	offset += 30;
 }
