@@ -74,11 +74,14 @@ void Staff::drawNotes() {
 void Staff::drawNote(Note * note, size_t& offset) {
 	if (note->isFlat()) {
 		drawFlat(offset + 15, 85 - note->getPosition() * 5, true, note->getOctave());
-		offset += 15;
+		offset += 12;
+	} else if (note->isSharp()) {
+		drawSharp(offset + 15, 85 - note->getPosition() * 5, true, note->getOctave());
+		offset += 12;
 	}
 	switch (note->getDuration()) {
 		case 1:
-			drawWholeNote(offset + 15, 85 - note->getPosition() * 5);
+			drawWholeNote(offset + 18, 85 - note->getPosition() * 5);
 			break;
 		case 2:
 			drawHalfNote(offset + 15, 85 - note->getPosition() * 5, note->getOctave());
@@ -255,6 +258,34 @@ void Staff::drawFlat(float x, float y, bool up, float offset) {
 	glVertex2f(x - 6    * 2.5, y + D(up) * (offset + 2.3));
 	glVertex2f(x - 6    * 2.5, y + D(up) * (offset + 4.75));
 	
+	glEnd();
+}
+
+void Staff::drawSharp(float x, float y, bool up, float offset) {
+	glBegin(GL_QUADS);
+	glColor3f(0, 0, 0);
+	x += 10.8;
+	y -= 2;
+	glVertex2f(x - 14, y + D(up) * (offset + 12.6));
+	glVertex2f(x - 13.5, y + D(up) * (offset + 12.6));
+	glVertex2f(x - 13.5, y + D(up) * (offset - 13.8));
+	glVertex2f(x - 14, y + D(up) * (offset - 13.8));
+
+	glVertex2f(x - 10.2, y + D(up) * (offset + 13.8));
+	glVertex2f(x - 9.7, y + D(up) * (offset + 13.8));
+	glVertex2f(x - 9.7, y + D(up) * (offset - 12.6));
+	glVertex2f(x - 10.2, y + D(up) * (offset - 12.6));
+
+	glVertex2f(x - 16, y + D(up) * (offset + 5));
+	glVertex2f(x - 7.6, y + D(up) * (offset + 7.4));
+	glVertex2f(x - 7.6, y + D(up) * (offset + 3.4));
+	glVertex2f(x - 16, y + D(up) * (offset + 1));
+
+	glVertex2f(x - 16, y + D(up) * (offset - 4.6));
+	glVertex2f(x - 7.6, y + D(up) * (offset - 2.1));
+	glVertex2f(x - 7.6, y + D(up) * (offset - 6.1));
+	glVertex2f(x - 16, y + D(up) * (offset - 8.6));
+
 	glEnd();
 }
 

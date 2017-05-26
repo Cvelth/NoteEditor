@@ -38,6 +38,7 @@ protected:
 	void drawStaff();
 	void drawLine(float x);
 	void drawFlat(float x, float y, bool up, float offset);
+	void drawSharp(float x, float y, bool up, float offset);
 public:
 	Staff(DurationHolder* duration, NoteList* notes, size_t begin, size_t id, size_t* type);
 	
