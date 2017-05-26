@@ -1,7 +1,7 @@
 #include "Note.hpp"
 #include "qstring.h"
 
-Note::Note(size_t note, size_t duration) : m_flat(false), m_sharp(false), m_position(note) {
+Note::Note(size_t note, size_t duration, size_t type) : m_flat(false), m_sharp(false), m_position(note) {
 	m_duration = duration;
 	if (note > 13)
 		throw IncorrectInputException();
@@ -12,6 +12,9 @@ Note::Note(size_t note, size_t duration) : m_flat(false), m_sharp(false), m_posi
 		m_noteType = NoteType(13 - note);
 		m_octave = true;
 	}
+	if (type == 1) m_flat = true; 
+	else
+	if (type == 2) m_sharp = true;
 }
 
 size_t Note::getPosition() {

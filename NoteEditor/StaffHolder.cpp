@@ -3,8 +3,8 @@
 #include "qlayout.h"
 #include "NoteList.hpp"
 
-StaffHolder::StaffHolder(QLayout * layout, DurationHolder * duration, NoteList * notes)
-		: m_duration(duration), m_layout(layout), m_notes(notes) {
+StaffHolder::StaffHolder(QLayout * layout, DurationHolder * duration, NoteList * notes, size_t * type)
+	: m_duration(duration), m_layout(layout), m_notes(notes), m_currentType(type) {
 	addStaff(0);
 }
 
@@ -23,7 +23,7 @@ void StaffHolder::updateLayout() {
 }
 
 void StaffHolder::addStaff(size_t i) {
-	auto t = new Staff(m_duration, m_notes, i, max_id++);
+	auto t = new Staff(m_duration, m_notes, i, max_id++, m_currentType);
 	connect(t, &Staff::OverflowSignal, this, &StaffHolder::addNewStaff);
 	connect(t, &Staff::updateStaffs, this, &StaffHolder::updateStaffs);
 	m_data.push_back(t);

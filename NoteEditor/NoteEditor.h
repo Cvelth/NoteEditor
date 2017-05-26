@@ -16,4 +16,9 @@ protected:
 private:
 	Controller m_controller;
 	Ui::NoteEditorClass ui;
+
+public slots:
+	void normal();
+	void flat();
+	void sharp();
 };

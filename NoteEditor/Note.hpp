@@ -17,7 +17,7 @@ protected:
 	bool m_sharp = false;
 
 public:
-	Note(size_t note, size_t duration);
+	Note(size_t note, size_t duration, size_t type);
 	void setNote(NoteType noteType) {
 		m_noteType = noteType;
 	}

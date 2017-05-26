@@ -16,6 +16,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -32,6 +33,10 @@ public:
     QVBoxLayout *StuffLayout;
     QHBoxLayout *horizontalLayout_3;
     QHBoxLayout *durationLayout;
+    QHBoxLayout *horizontalLayout_2;
+    QRadioButton *normal;
+    QRadioButton *flat;
+    QRadioButton *sharp;
     QPushButton *playButton;
 
     void setupUi(QWidget *NoteEditorClass)
@@ -48,7 +53,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 686, 463));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 686, 438));
         horizontalLayout = new QHBoxLayout(scrollAreaWidgetContents);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
@@ -75,6 +80,28 @@ public:
 
         verticalLayout_2->addLayout(horizontalLayout_3);
 
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        normal = new QRadioButton(NoteEditorClass);
+        normal->setObjectName(QStringLiteral("normal"));
+        normal->setChecked(true);
+
+        horizontalLayout_2->addWidget(normal);
+
+        flat = new QRadioButton(NoteEditorClass);
+        flat->setObjectName(QStringLiteral("flat"));
+
+        horizontalLayout_2->addWidget(flat);
+
+        sharp = new QRadioButton(NoteEditorClass);
+        sharp->setObjectName(QStringLiteral("sharp"));
+
+        horizontalLayout_2->addWidget(sharp);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_2);
+
         playButton = new QPushButton(NoteEditorClass);
         playButton->setObjectName(QStringLiteral("playButton"));
 
@@ -89,6 +116,9 @@ public:
     void retranslateUi(QWidget *NoteEditorClass)
     {
         NoteEditorClass->setWindowTitle(QApplication::translate("NoteEditorClass", "NoteEditor", Q_NULLPTR));
+        normal->setText(QApplication::translate("NoteEditorClass", "Normal Note", Q_NULLPTR));
+        flat->setText(QApplication::translate("NoteEditorClass", "Flat", Q_NULLPTR));
+        sharp->setText(QApplication::translate("NoteEditorClass", "Sharp", Q_NULLPTR));
         playButton->setText(QApplication::translate("NoteEditorClass", "Play", Q_NULLPTR));
     } // retranslateUi
 

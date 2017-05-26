@@ -46,6 +46,9 @@
     <Filter Include="Controller\Player">
       <UniqueIdentifier>{2251bf05-c326-4060-9c32-fe3829a005a5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Controller\Duration">
+      <UniqueIdentifier>{9855e51b-f18d-4a9a-ab26-533c742a70d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GeneratedFiles\qrc_NoteEditor.cpp">
@@ -68,9 +71,6 @@
       <Filter>View\MainWindow</Filter>
     </ClCompile>
     <ClCompile Include="DurationButton.cpp">
-      <Filter>View\Duration</Filter>
-    </ClCompile>
-    <ClCompile Include="DurationHolder.cpp">
       <Filter>View\Duration</Filter>
     </ClCompile>
     <ClCompile Include="Staff.cpp">
@@ -121,6 +121,9 @@
     <ClCompile Include="Player.cpp">
       <Filter>Controller\Player</Filter>
     </ClCompile>
+    <ClCompile Include="DurationHolder.cpp">
+      <Filter>Controller\Duration</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="NoteEditor.ui">
@@ -133,9 +136,6 @@
       <Filter>View\MainWindow</Filter>
     </CustomBuild>
     <CustomBuild Include="DurationButton.hpp">
-      <Filter>View\Duration</Filter>
-    </CustomBuild>
-    <CustomBuild Include="DurationHolder.hpp">
       <Filter>View\Duration</Filter>
     </CustomBuild>
     <CustomBuild Include="Staff.hpp">
@@ -164,6 +164,9 @@
     </CustomBuild>
     <CustomBuild Include="StaffHolder.hpp">
       <Filter>Controller\Staff</Filter>
+    </CustomBuild>
+    <CustomBuild Include="DurationHolder.hpp">
+      <Filter>Controller\Duration</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

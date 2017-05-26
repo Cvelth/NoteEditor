@@ -48,9 +48,9 @@ Note * Staff::generateNote(size_t y) {
 	if (y >= 12 && y <= 82)
 		for (int i = 12, j = 0; i < 82; i += 10, j += 2) {
 			if (y < i + 6)
-				return new Note(j, m_duration->getCurrentDuration());
+				return new Note(j, m_duration->getCurrentDuration(), *m_currentType);
 			else if (y < i + 10) 
-				return new Note(j + 1, m_duration->getCurrentDuration());
+				return new Note(j + 1, m_duration->getCurrentDuration(), *m_currentType);
 		}
 	return nullptr;
 }
@@ -72,10 +72,10 @@ void Staff::drawNotes() {
 }
 
 void Staff::drawNote(Note * note, size_t& offset) {
-	note->setFlat();
-	if (note->isFlat())
+	if (note->isFlat()) {
 		drawFlat(offset + 15, 85 - note->getPosition() * 5, true, note->getOctave());
-	offset += 15;
+		offset += 15;
+	}
 	switch (note->getDuration()) {
 		case 1:
 			drawWholeNote(offset + 15, 85 - note->getPosition() * 5);
@@ -258,8 +258,8 @@ void Staff::drawFlat(float x, float y, bool up, float offset) {
 	glEnd();
 }
 
-Staff::Staff(DurationHolder * duration, NoteList * notes, size_t begin, size_t id) 
-		: m_duration(duration), m_notes(notes), m_begin(begin), m_id(id) {
+Staff::Staff(DurationHolder * duration, NoteList * notes, size_t begin, size_t id, size_t * type) 
+	: m_duration(duration), m_notes(notes), m_begin(begin), m_id(id), m_currentType(type) {
 	setFixedHeight(HEIGHT);
 	setMinimumHeight(HEIGHT);
 }
