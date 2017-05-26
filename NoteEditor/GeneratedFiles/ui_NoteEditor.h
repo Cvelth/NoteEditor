@@ -40,6 +40,7 @@ public:
     QHBoxLayout *horizontalLayout_4;
     QPushButton *playButton;
     QPushButton *exportButton;
+    QPushButton *clearButton;
 
     void setupUi(QWidget *NoteEditorClass)
     {
@@ -117,8 +118,14 @@ public:
 
         horizontalLayout_4->addWidget(exportButton);
 
+        clearButton = new QPushButton(NoteEditorClass);
+        clearButton->setObjectName(QStringLiteral("clearButton"));
+
+        horizontalLayout_4->addWidget(clearButton);
+
         horizontalLayout_4->setStretch(0, 3);
         horizontalLayout_4->setStretch(1, 1);
+        horizontalLayout_4->setStretch(2, 1);
 
         verticalLayout_2->addLayout(horizontalLayout_4);
 
@@ -136,6 +143,7 @@ public:
         sharp->setText(QApplication::translate("NoteEditorClass", "Sharp", Q_NULLPTR));
         playButton->setText(QApplication::translate("NoteEditorClass", "Play", Q_NULLPTR));
         exportButton->setText(QApplication::translate("NoteEditorClass", "Export", Q_NULLPTR));
+        clearButton->setText(QApplication::translate("NoteEditorClass", "Clear", Q_NULLPTR));
     } // retranslateUi
 
 };

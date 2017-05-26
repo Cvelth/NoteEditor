@@ -72,7 +72,7 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="3,1">
+    <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="3,1,1">
      <item>
       <widget class="QPushButton" name="playButton">
        <property name="text">
@@ -84,6 +84,13 @@
       <widget class="QPushButton" name="exportButton">
        <property name="text">
         <string>Export</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="clearButton">
+       <property name="text">
+        <string>Clear</string>
        </property>
       </widget>
      </item>

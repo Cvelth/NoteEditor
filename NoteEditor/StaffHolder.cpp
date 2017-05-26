@@ -30,6 +30,10 @@ void StaffHolder::addStaff(size_t i) {
 	updateLayout();
 }
 
+void StaffHolder::clear() {
+	m_data.clear();
+}
+
 void StaffHolder::updateStaffs() {
 	m_data.clear();
 	max_id = 0;

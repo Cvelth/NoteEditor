@@ -22,6 +22,7 @@ public:
 	void clearLayout(QLayout * layout);
 	void updateLayout();
 	void addStaff(size_t id);
+	void clear();
 
 public slots:
 	void updateStaffs();

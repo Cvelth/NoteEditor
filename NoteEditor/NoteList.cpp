@@ -22,3 +22,7 @@ std::string NoteList::getMidi() {
 		ret += note->getMidi() + ' ';
 	return ret;
 }
+
+void NoteList::clear() {
+	m_data.clear();
+}

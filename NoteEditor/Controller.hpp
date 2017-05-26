@@ -23,4 +23,5 @@ public:
 	void play();
 	void exportMid(std::string filename);
 	void setCurrentNoteType(size_t type);
+	void clear();
 };

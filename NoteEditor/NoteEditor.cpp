@@ -14,6 +14,7 @@ NoteEditor::NoteEditor(QWidget *parent)
 	connect(ui.flat, &QRadioButton::clicked, this, &NoteEditor::flat);
 	connect(ui.sharp, &QRadioButton::clicked, this, &NoteEditor::sharp);
 	connect(ui.exportButton, &QRadioButton::clicked, this, &NoteEditor::exportMid);
+	connect(ui.clearButton, &QRadioButton::clicked, this, &NoteEditor::clear);
 }
 void NoteEditor::normal() {
 	m_controller.setCurrentNoteType(0);
@@ -27,4 +28,8 @@ void NoteEditor::sharp() {
 
 void NoteEditor::exportMid() {
 	m_controller.exportMid("exportedFile.mid");
+}
+
+void NoteEditor::clear() {
+	m_controller.clear();
 }

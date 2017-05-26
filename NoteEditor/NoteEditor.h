@@ -22,4 +22,5 @@ public slots:
 	void flat();
 	void sharp();
 	void exportMid();
+	void clear();
 };

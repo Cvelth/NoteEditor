@@ -32,3 +32,9 @@ void Controller::setCurrentNoteType(size_t type) {
 		throw IncorrectInputException();
 	m_currentType = type;
 }
+
+void Controller::clear() {
+	m_notes->clear();
+	m_staffs->clear();
+	m_staffs->addStaff(0);
+}
